@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
       username,
       password
     );
-    console.log(response);
+    console.log("login success");
 
     // Success
     res.status(200).json({

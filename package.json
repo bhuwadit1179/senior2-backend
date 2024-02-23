@@ -1,0 +1,23 @@
+{
+  "name": "senior2",
+  "version": "1.0.0",
+  "description": "Backend of website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhuwadit1179/senior1-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhuwadit1179/senior1-backend/issues"
+  },
+  "homepage": "https://github.com/bhuwadit1179/senior1-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase": "^10.8.0"
+  }
+}

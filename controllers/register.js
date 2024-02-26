@@ -5,7 +5,7 @@ const getRegisterContoller = async (req, res) => {
   const address = req.body.address;
   const phone_number = req.body.phone_number;
   const email = req.body.email;
-  const position_id = req.body.position_id;
+  const position = req.body.position;
   const zipcode = req.body.zipcode;
   const emergency_contract_name = req.body.emergency_contract_name;
   const emergency_contract_surname = req.body.emergency_contract_surname;
@@ -19,7 +19,7 @@ const getRegisterContoller = async (req, res) => {
     !address ||
     !phone_number ||
     !email ||
-    !position_id ||
+    !position ||
     !zipcode ||
     !emergency_contract_name ||
     !emergency_contract_surname ||
@@ -54,7 +54,7 @@ const getRegisterContoller = async (req, res) => {
         address: address,
         phone_number: phone_number,
         email: email,
-        position_id: position_id,
+        position: position,
         zipcode: zipcode,
         emergency_contract_name: emergency_contract_name,
         emergency_contract_surname: emergency_contract_surname,

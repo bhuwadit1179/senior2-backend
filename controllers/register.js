@@ -61,6 +61,8 @@ const getRegisterContoller = async (req, res) => {
         emergency_contract_relation: emergency_contract_relation,
         employeeid: employeeid,
         is_admin: false,
+        faceAdded: false,
+        id: create_account.uid,
       });
     return res.status(201).json({
       status_code: 201,

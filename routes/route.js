@@ -9,6 +9,7 @@ const {
   getUsersController,
   getUsersByIdController,
 } = require("../controllers/user");
+const { getCheckInController } = require("../controllers/checkin");
 
 //User Features
 router.get("/profile", verifyToken, getProfileController);
@@ -18,5 +19,6 @@ router.post("/register", verifyToken, getRegisterContoller);
 //Admin Features
 router.get("/admin/user", verifyToken, getUsersController);
 router.get("/admin/user/:id", verifyToken, getUsersByIdController);
+router.get("/admin/checkin", verifyToken, getCheckInController);
 
 module.exports = router;

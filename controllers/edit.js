@@ -40,7 +40,7 @@ const editEmployeeController = async (req, res) => {
       id: userId,
       profile_image_url: profile_image_url ?? null,
     });
-  return res.status(200).json({});
+  return res.status(200).json({ status_code: 201, message: "success" });
 };
 
 module.exports = { editEmployeeController };

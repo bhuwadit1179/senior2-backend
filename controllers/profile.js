@@ -15,6 +15,7 @@ const getProfileController = async (req, res) => {
     first_name: doc.data().first_name,
     last_name: doc.data().last_name,
     position: doc.data().position,
+    is_admin: doc.data().is_admin,
   });
 };
 

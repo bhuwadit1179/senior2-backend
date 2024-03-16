@@ -1,4 +1,5 @@
 const { auth, firestore } = require("../firebase/config");
+
 const getRegisterContoller = async (req, res) => {
   const first_name = req.body.first_name;
   const last_name = req.body.last_name;
@@ -12,6 +13,9 @@ const getRegisterContoller = async (req, res) => {
   const emergency_contract_telephone = req.body.emergency_contract_telephone;
   const emergency_contract_relation = req.body.emergency_contract_relation;
   const employeeid = req.body.employeeid;
+  const is_admin = req.body.is_admin;
+  const account_status = req.body.account_status;
+  const profile_image_url = req.body.profile_image_url;
   if (
     !employeeid ||
     !first_name ||
@@ -24,7 +28,8 @@ const getRegisterContoller = async (req, res) => {
     !emergency_contract_name ||
     !emergency_contract_surname ||
     !emergency_contract_telephone ||
-    !emergency_contract_relation
+    !emergency_contract_relation ||
+    !account_status
   ) {
     res.status(400).json({
       status_code: 400,
@@ -37,7 +42,7 @@ const getRegisterContoller = async (req, res) => {
       emailVerified: false,
       password: `${first_name}1234`,
     });
-    // console.log(create_account);
+
     if (!create_account.uid) {
       return res.status(500).json({
         status_code: 500,
@@ -59,10 +64,13 @@ const getRegisterContoller = async (req, res) => {
         emergency_contract_name: emergency_contract_name,
         emergency_contract_surname: emergency_contract_surname,
         emergency_contract_relation: emergency_contract_relation,
+        emergency_contract_telephone: emergency_contract_telephone,
         employeeid: employeeid,
-        is_admin: false,
+        is_admin: is_admin,
         faceAdded: false,
         id: create_account.uid,
+        account_status: account_status,
+        profile_image_url: profile_image_url ?? null,
       });
     return res.status(201).json({
       status_code: 201,

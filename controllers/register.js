@@ -16,6 +16,7 @@ const getRegisterContoller = async (req, res) => {
   const is_admin = req.body.is_admin;
   const account_status = req.body.account_status;
   const profile_image_url = req.body.profile_image_url;
+  const config_id = req.body.config_id;
   if (
     !employeeid ||
     !first_name ||
@@ -71,6 +72,7 @@ const getRegisterContoller = async (req, res) => {
         id: create_account.uid,
         account_status: account_status,
         profile_image_url: profile_image_url ?? null,
+        config_id: config_id ?? null,
       });
     return res.status(201).json({
       status_code: 201,

@@ -12,6 +12,7 @@ const {
 const { getCheckInController } = require("../controllers/checkin");
 const { uploadImage } = require("../controllers/image");
 const { editEmployeeController } = require("../controllers/edit");
+const { editSettingController } = require("../controllers/setting");
 
 //User Features
 router.get("/profile", verifyToken, getProfileController);
@@ -23,4 +24,5 @@ router.get("/admin/user", verifyToken, getUsersController);
 router.get("/admin/user/:id", verifyToken, getUsersByIdController);
 router.get("/admin/checkin", verifyToken, getCheckInController);
 router.post("/upload", verifyToken, upload.single("file"), uploadImage);
+router.post("/setting", verifyToken, editSettingController);
 module.exports = router;

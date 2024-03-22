@@ -13,6 +13,13 @@ const getUsersController = async (req, res) => {
   try {
     const searchQuery = req.query.search;
 
+    if (!searchQuery) {
+      return res.status(400).json({
+        status_code: 400,
+        message: "Missing search query parameter 'query'",
+      });
+    }
+
     // Search for employees based on the provided query for first name
     const employeeSnapshotFirstName = await firestore
       .collection("Employee")
@@ -31,6 +38,13 @@ const getUsersController = async (req, res) => {
     const employeeSnapshotEmployeeId = await firestore
       .collection("Employee")
       .where("employeeid", "==", searchQuery)
+      .get();
+
+    // Search for employees based on the provided query for position
+    const employeeSnapshotPosition = await firestore
+      .collection("Employee")
+      .where("position", ">=", searchQuery)
+      .where("position", "<=", searchQuery + "\uf8ff")
       .get();
 
     const searchResults = [];
@@ -73,6 +87,8 @@ const getUsersController = async (req, res) => {
     await processEmployeeSnapshot(employeeSnapshotFirstName);
     await processEmployeeSnapshot(employeeSnapshotLastName);
     await processEmployeeSnapshot(employeeSnapshotEmployeeId);
+    await processEmployeeSnapshot(employeeSnapshotPosition);
+
     return res.status(200).json(searchResults);
   } catch (error) {
     console.error("Error searching employees:", error);

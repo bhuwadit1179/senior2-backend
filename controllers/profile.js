@@ -10,13 +10,7 @@ const getProfileController = async (req, res) => {
       message: "User Not Found",
     });
   }
-  return res.status(200).json({
-    user_id: req.data.user_id,
-    first_name: doc.data().first_name,
-    last_name: doc.data().last_name,
-    position: doc.data().position,
-    is_admin: doc.data().is_admin,
-  });
+  return res.status(200).json(doc.data());
 };
 
 module.exports = { getProfileController };

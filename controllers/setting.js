@@ -1,6 +1,6 @@
 const { firestore } = require("../firebase/config");
 
-const editSettingController = async (req, res) => {
+const createSettingController = async (req, res) => {
   const endDay = req.body.endDay;
   const endWork = req.body.endWork;
   const startDay = req.body.startDay;
@@ -23,5 +23,4 @@ const editSettingController = async (req, res) => {
     });
 };
 
-const mergeEmployeedata = async (req, res) => {};
-module.exports = { editSettingController };
+module.exports = { createSettingController };

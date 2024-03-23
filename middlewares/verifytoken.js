@@ -6,7 +6,7 @@ const verifyToken = async (req, res, next) => {
   if (!accessToken) {
     return res.status(401).json({
       status_code: 401,
-      message: "Not authorized",
+      message: "Not authorized1",
     });
   }
 
@@ -22,12 +22,12 @@ const verifyToken = async (req, res, next) => {
     }
     return res.status(401).json({
       status_code: 401,
-      message: "Not authorized",
+      message: "Not authorized2",
     });
   } catch (error) {
     return res.status(401).json({
       status_code: 401,
-      message: "Not authorized",
+      message: "Not authorized3",
     });
   }
 };

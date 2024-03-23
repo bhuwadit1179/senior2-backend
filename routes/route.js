@@ -9,7 +9,10 @@ const {
   getUsersController,
   getUsersByIdController,
 } = require("../controllers/user");
-const { getCheckInController } = require("../controllers/checkin");
+const {
+  getCheckInController,
+  getCheckInByUserIdController,
+} = require("../controllers/checkin");
 const { uploadImage } = require("../controllers/image");
 const { editEmployeeController } = require("../controllers/edit");
 const { createSettingController } = require("../controllers/setting");
@@ -25,6 +28,8 @@ router.post("/admin/user/:id", verifyToken, editEmployeeController);
 router.get("/admin/user", verifyToken, getUsersController);
 router.get("/admin/user/:id", verifyToken, getUsersByIdController);
 router.get("/admin/checkin", verifyToken, getCheckInController);
+router.get("/admin/checkin/:uid", verifyToken, getCheckInByUserIdController);
+
 router.post("/upload", verifyToken, upload.single("file"), uploadImage);
 router.post("/setting", verifyToken, createSettingController);
 router.get("/search", verifyToken, searchEmployeeData);

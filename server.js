@@ -8,7 +8,3 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/", route);
-
-app.listen(3001, () => {
-  console.log("Start server at port 3001.");
-});

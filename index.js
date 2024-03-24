@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/", route);
 
-const PORT = 3000;
+const PORT = 3001;
 app.get("/", (req, res) => {
   res.send("test deployment");
 });

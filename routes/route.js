@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
 const verifyToken = require("../middlewares/verifytoken");
 const { getProfileController } = require("../controllers/profile");
 const { getRegisterContoller } = require("../controllers/register");
@@ -30,7 +28,7 @@ router.get("/admin/user/:id", verifyToken, getUsersByIdController);
 router.get("/admin/checkin", verifyToken, getCheckInController);
 router.get("/admin/checkin/:uid", verifyToken, getCheckInByUserIdController);
 
-router.post("/upload", verifyToken, upload.single("file"), uploadImage);
+// router.post("/upload", verifyToken, upload.single("file"), uploadImage);
 router.post("/setting", verifyToken, createSettingController);
 router.get("/search", verifyToken, searchEmployeeData);
 router.put("/updateconfig", verifyToken, updateConfigController);

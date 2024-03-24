@@ -35,7 +35,6 @@ const editEmployeeController = async (req, res) => {
       emergency_contract_telephone: emergency_contract_telephone,
       employeeid: employeeid,
       is_admin: is_admin,
-      faceAdded: false,
       account_status: account_status,
       id: userId,
       profile_image_url: profile_image_url ?? null,
